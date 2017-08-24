@@ -12,11 +12,12 @@
     <main>
       <div class = "container">
         {{#hats}}
-         <h4>{{team}}</h4>
-         <h5>{{details}}</h5>
-         {{#colors}}
-         <h6>{{.}}</h6>
+         <h4>Team: {{team}}</h4>
+         <h5>Style: {{details.fitted}}   Size: {{details.size}}   Type: {{details.special}}</h5>
+         <h6>Colors: {{#colors}}
+         <span>{{.}} </span>
          {{/colors}}
+         </h6>
         {{/hats}}
       </div>
     </main>
