@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hat Collection List</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header id="header">
+      <h1>Ye Hat Collection</h1>
+    </header>
+    <main>
+      <div class = "container">
+        {{#hats}}
+         <h4>{{id}}</h4>
+         <h4>{{team}}</h4>
+        {{/hats}}
+      </div>
+    </main>
+  </body>
+</html>
