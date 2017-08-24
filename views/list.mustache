@@ -12,8 +12,11 @@
     <main>
       <div class = "container">
         {{#hats}}
-         <h4>{{id}}</h4>
          <h4>{{team}}</h4>
+         <h5>{{details}}</h5>
+         {{#colors}}
+         <h6>{{.}}</h6>
+         {{/colors}}
         {{/hats}}
       </div>
     </main>

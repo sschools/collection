@@ -5,7 +5,7 @@ const RobotSchema = new mongoose.Schema({
   team: { type: String, required:true },
   logo: { type: String },
   details: {
-    fitted: {type: Boolean},
+    fitted: {type: String},
     size: {type: String},
     special: {type: String}
   },

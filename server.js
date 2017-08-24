@@ -2,8 +2,10 @@ const express = require("express");
 const mustacheExpress = require("mustache-express");
 const {addHat} = require("./dal");
 const bodyParser = require("body-parser");
-const mongoose = require('mongoose')
-const Hat = require('./models/Hat')
+const mongoose = require('mongoose');
+const Hat = require('./models/Hat');
+const qs = require('qs');
+const assert = require('assert');
 
 const app = express();
 
@@ -27,6 +29,7 @@ app.get("/add", function(req, res) {
 
 app.post("/add", function(req, res) {
   let newHat = req.body;
+  console.log(req.body);
   addHat(newHat);
   res.render("add", {message:"Hat Successfully Added."});
 });
