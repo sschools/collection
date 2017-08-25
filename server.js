@@ -1,6 +1,6 @@
 const express = require("express");
 const mustacheExpress = require("mustache-express");
-const {addHat, getHatByIdTeam} = require("./dal");
+const {addHat, getHatByIdTeam, getHatById, deleteHat, updateHats} = require("./dal");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const Hat = require('./models/Hat');
@@ -38,14 +38,26 @@ app.post("/add", function(req, res) {
 });
 
 app.post("/edDel", function(req, res) {
-  console.log(req.body);
   let selection = req.body;
-  getHatByIdTeam(selection, hats);
-  res.redirect("/");
+  selectedHats = getHatByIdTeam(selection, hats);
+  let editDel = true;
+  res.render("list", {hats:selectedHats, editDel:editDel});
 });
 
 app.get("/list", function(req, res) {
   res.render("list", {hats:hats});
+});
+
+app.post("/list", function(req, res) {
+  if (req.body.editHat) {
+    singleHat = getHatById(req.body.editHat, hats);
+    return res.render("editScreen", {singleHat});
+  } else if (req.body.delHat){
+    singleHat = getHatById(req.body.delHat, hats);
+    let temp = deleteHat(singleHat, hats);
+    hats = temp;
+    return res.render("list", {hats:hats});
+  }
 });
 
 app.listen(3000, function () {

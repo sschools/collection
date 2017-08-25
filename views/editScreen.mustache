@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add A Hat</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header id="header">
+      <h1>Edit or Add Any Information Below</h1>
+    </header>
+    <main>
+      <div class = "container">
+        {{#singleHat}}
+        <form action="/add" method="POST">
+          <input type="text" name="_id" placeholder="{{_id}}"><br>
+          <input type="text" name="team" placeholder="{{team}}"><br>
+          <select name="fitted">
+            <option value="fitted">Fitted</option>
+            <option vaule="flex">Flex</option>
+          </select><br>
+          <input type="text" name="size" placeholder="{{size}}"><br>
+          <select name="special">
+            <option value="home">Home</option>
+            <option value="road">Road</option>
+            <option value="alternate">Alternate</option>
+            <option value="holiday">Holiday</option>
+          </select><br>
+          <input type="text" name="color1" placeholder="{{colors[1]}}">
+          <input type="text" name="color2" placeholder="{{colors[2]}}">
+          <input type="text" name="color3" placeholder="{{colors[3]}}"><br>
+          <button type="submit">Change This Hat!</button>
+        </form>
+        {{/singleHat}}
+        <br>
+        <br>
+        <h2>{{message}}</h2>
+        <br>
+        <h3><a href="/list">View Entire Collection</a></h3>
+      </div>
+    </main>
+  </body>
+</html>

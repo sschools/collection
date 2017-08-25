@@ -12,14 +12,22 @@
     <main>
       <div class = "container">
         {{#hats}}
-         <h4>Team: {{team}}</h4>
+         <h4>Id: {{_id}}   Team: {{team}}</h4>
          <h5>Style: {{details.fitted}}   Size: {{details.size}}   Type: {{details.special}}</h5>
+         {{#editDel}}
+         <form action="/list" method="POST">
+         <button name="editHat" type="submit" value="{{_id}}">Edit This Hat</button>
+         <button name="delHat" type="submit" value="{{_id}}">Delete This Hat</button>
+       </form>
+         {{/editDel}}
          <h6>Colors: {{#colors}}
          <span>{{.}} </span>
          {{/colors}}
          </h6>
         {{/hats}}
       </div>
+      <br>
+      <h3><a href="/edDel">Edit or Delete A Hat</a></h3>
     </main>
   </body>
 </html>

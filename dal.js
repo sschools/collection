@@ -30,7 +30,7 @@ function getHatByIdTeam(selection, hats) {
     }
   } else {
     for (let i = 0; i < hats.length; i++) {
-      if (selection.team == hats[i].team) {
+      if (selection.team === hats[i].team) {
         selectedHats.push(hats[i]);
       }
     }
@@ -38,4 +38,32 @@ function getHatByIdTeam(selection, hats) {
   return selectedHats;
 }
 
-module.exports = {addHat}
+function getHatById(id,hats) {
+  let selectedHat;
+  for (let i = 0; i < hats.length; i++) {
+    if (id == hats[i]._id) {
+      selectedHat = hats[i];
+    }
+  }
+  return selectedHat;
+}
+
+function updateHats(hat, hats) {
+  for (let i = 0; i < hats.length; i++) {
+    if (hat._id == hats[i]._id) {
+      hats[i] = hat;
+    }
+  }
+  return hats;
+}
+
+function deleteHat(hat, hats) {
+  for (let i = 0; i < hats.length; i++) {
+    if (hat._id == hats[i]._id) {
+      hats.splice(i,1);
+    }
+  }
+  return hats;
+}
+
+module.exports = {addHat, getHatByIdTeam, getHatById, updateHats, deleteHat}
