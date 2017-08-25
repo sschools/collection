@@ -9,22 +9,27 @@
     <header id="header">
       <h1>Ye Hat Collection</h1>
     </header>
-    <main>
+    <main class="list-main">
       <div class = "container">
         {{#hats}}
-         <h4>Id: {{_id}}   Team: {{team}}</h4>
-         <h5>Style: {{details.fitted}}   Size: {{details.size}}   Type: {{details.special}}</h5>
+          <div class="one-hat">
+          <h4>Id: <span>{{_id}}</span>   Team: <span>{{team}}</span></h4>
+          <h5>Style: <span>{{details.fitted}}</span></h5>
+          <h5>Size: <span>{{details.size}}</span></h5>
+          <h5>Type: <span>{{details.special}}</span></h5>
+         <h6>Colors:
+           {{#colors}}
+         <span>{{.}} </span>
+          {{/colors}}
+         </h6>
          {{#editDel}}
          <form action="/list" method="POST">
-         <button name="editHat" type="submit" value="{{_id}}">Edit This Hat</button>
-         <button name="delHat" type="submit" value="{{_id}}">Delete This Hat</button>
-       </form>
-         {{/editDel}}
-         <h6>Colors: {{#colors}}
-         <span>{{.}} </span>
-         {{/colors}}
-         </h6>
-        {{/hats}}
+           <button name="editHat" type="submit" value="{{_id}}">Edit This Hat</button>
+           <button name="delHat" type="submit" value="{{_id}}">Delete This Hat</button>
+         </form>
+        {{/editDel}}
+        </div>
+       {{/hats}}
       </div>
       <br>
       <h3><a href="/edDel">Edit or Delete A Hat</a></h3>

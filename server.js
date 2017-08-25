@@ -61,6 +61,7 @@ app.post("/list", function(req, res) {
     singleHat = req.body;
     let temp = updateHats(singleHat, hats);
     hats = temp;
+    return res.render("list", {hats:hats});
   }
 });
 

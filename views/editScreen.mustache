@@ -13,22 +13,28 @@
       <div class = "container">
         {{#singleHat}}
         <form action="/list" method="POST">
+          <label for="_id">Id: </label>
           <input type="text" name="_id" value="{{_id}}"><br>
+          <label for="team">Team: </team>
           <input type="text" name="team" value="{{team}}"><br>
+          <label for="fitted">Style: </label>
           <select name="fitted">
             <option value="fitted">Fitted</option>
             <option vaule="flex">Flex</option>
           </select><br>
-          <input type="text" name="size" value="{{size}}"><br>
+          <label for="size">Size: </label>
+          <input type="text" name="size" value="{{details.size}}"><br>
+          <label for="special">Type: </label>
           <select name="special">
             <option value="home">Home</option>
             <option value="road">Road</option>
             <option value="alternate">Alternate</option>
             <option value="holiday">Holiday</option>
           </select><br>
-          <input type="text" name="color1" value="{{colors[1]}}">
-          <input type="text" name="color2" value=""="{{colors[2]}}">
-          <input type="text" name="color3" value=""="{{colors[3]}}"><br>
+          <label for="color1">Colors: </label>
+          <input type="text" name="color1" value="{{colors}}">
+          <input type="text" name="color2" value="">
+          <input type="text" name="color3" value=""><br>
           <button type="submit">Change This Hat!</button>
         </form>
         {{/singleHat}}
