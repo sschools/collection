@@ -57,6 +57,10 @@ app.post("/list", function(req, res) {
     let temp = deleteHat(singleHat, hats);
     hats = temp;
     return res.render("list", {hats:hats});
+  } else {
+    singleHat = req.body;
+    let temp = updateHats(singleHat, hats);
+    hats = temp;
   }
 });
 

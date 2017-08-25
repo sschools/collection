@@ -51,7 +51,11 @@ function getHatById(id,hats) {
 function updateHats(hat, hats) {
   for (let i = 0; i < hats.length; i++) {
     if (hat._id == hats[i]._id) {
-      hats[i] = hat;
+      hats[i].details.special = hat.special;
+      hats[i].details.size = hat.size;
+      hats[i].details.fitted = hat.fitted;
+      hats[i].colors = [hat.color1, hat.color2, hat.color3];
+      hats[i].team = hat.team;
     }
   }
   return hats;
