@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const RobotSchema = new mongoose.Schema({
-  id: {type: Number, required: true, unique:true},
+  _id: {type: Number, required: true},
   team: { type: String, required:true },
   logo: { type: String },
   details: {

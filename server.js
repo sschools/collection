@@ -1,6 +1,6 @@
 const express = require("express");
 const mustacheExpress = require("mustache-express");
-const {addHat} = require("./dal");
+const {addHat, getHatByIdTeam} = require("./dal");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const Hat = require('./models/Hat');
@@ -27,11 +27,21 @@ app.get("/add", function(req, res) {
   res.render("add");
 });
 
+app.get("/edDel", function(req, res) {
+  res.render("edDel");
+});
+
 app.post("/add", function(req, res) {
   let newHat = req.body;
-  console.log(req.body);
   addHat(newHat);
   res.render("add", {message:"Hat Successfully Added."});
+});
+
+app.post("/edDel", function(req, res) {
+  console.log(req.body);
+  let selection = req.body;
+  getHatByIdTeam(selection, hats);
+  res.redirect("/");
 });
 
 app.get("/list", function(req, res) {

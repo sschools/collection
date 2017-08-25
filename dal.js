@@ -16,9 +16,26 @@ function addHat(hat) {
   if (hat.color3 !== "") {
     newHat.colors.push(hat.color3);
   }
-  console.log(newHat);
   hats.push(newHat);
   return Promise.resolve('success');
+}
+
+function getHatByIdTeam(selection, hats) {
+  let selectedHats = [];
+  if (selection._id) {
+    for (let i = 0; i < hats.length; i++) {
+      if (selection._id == hats[i]._id) {
+        selectedHats.push(hats[i]);
+      }
+    }
+  } else {
+    for (let i = 0; i < hats.length; i++) {
+      if (selection.team == hats[i].team) {
+        selectedHats.push(hats[i]);
+      }
+    }
+  }
+  return selectedHats;
 }
 
 module.exports = {addHat}
