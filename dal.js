@@ -20,6 +20,16 @@ function addHat(hat) {
   return Promise.resolve('success');
 }
 
+function checkId(hat) {
+  let duplicate = false;
+  for (let i = 0; i < hats.length; i++) {
+    if (hat._id == hats[i]._id) {
+      duplicate = true;
+    }
+  }
+  return duplicate;
+}
+
 function getHatByIdTeam(selection, hats) {
   let selectedHats = [];
   if (selection._id) {
@@ -70,4 +80,4 @@ function deleteHat(hat, hats) {
   return hats;
 }
 
-module.exports = {addHat, getHatByIdTeam, getHatById, updateHats, deleteHat}
+module.exports = {addHat, getHatByIdTeam, getHatById, updateHats, deleteHat, checkId}

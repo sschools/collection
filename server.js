@@ -1,6 +1,6 @@
 const express = require("express");
 const mustacheExpress = require("mustache-express");
-const {addHat, getHatByIdTeam, getHatById, deleteHat, updateHats} = require("./dal");
+const {addHat, getHatByIdTeam, getHatById, deleteHat, updateHats, checkId} = require("./dal");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const Hat = require('./models/Hat');
@@ -33,8 +33,11 @@ app.get("/edDel", function(req, res) {
 
 app.post("/add", function(req, res) {
   let newHat = req.body;
+  if (checkId(newHat)) {
+    return res.render("add", {message: "That Id Number Is Taken, Please Use a Different Id. Hat Not Added."});
+  };
   addHat(newHat);
-  res.render("add", {message:"Hat Successfully Added."});
+  return res.render("add", {message:"Hat Successfully Added."});
 });
 
 app.post("/edDel", function(req, res) {

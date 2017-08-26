@@ -52,3 +52,7 @@ a:hover {
 span {
   color: #1812d1;
 }
+
+.alert-message {
+  color: #e80000;
+}
