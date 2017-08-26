@@ -54,6 +54,8 @@ app.get("/list", function(req, res) {
 app.post("/list", function(req, res) {
   if (req.body.editHat) {
     singleHat = getHatById(req.body.editHat, hats);
+    let tempColors = {one:singleHat.colors[0], two:singleHat.colors[1], three:singleHat.colors[2]};
+    singleHat.colors = tempColors;
     return res.render("editScreen", {singleHat});
   } else if (req.body.delHat){
     singleHat = getHatById(req.body.delHat, hats);

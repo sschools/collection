@@ -33,9 +33,11 @@
             <option value="holiday">Holiday</option>
           </select><br>
           <label for="color1">Colors: </label>
-          <input type="text" name="color1" value="{{colors}}">
-          <input type="text" name="color2" value="">
-          <input type="text" name="color3" value=""><br>
+          {{#colors}}
+          <input type="text" name="color1" value="{{one}}">
+          <input type="text" name="color2" value="{{two}}">
+          <input type="text" name="color3" value="{{three}}"><br>
+          {{/colors}}
           <button type="submit">Change This Hat!</button>
         </form>
         {{/singleHat}}
